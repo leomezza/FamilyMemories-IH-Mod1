@@ -1,29 +1,18 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | Canvas Race Car
+# Project #1 | Family Memories
 
-## Introduction
+## Game rules
 
-We are ready to start making some games with `canvas` help, so in this first exercise, we will a **Car Race** using some basic animations we learned today.
-
-Remember, you have the Learning Units to check any concept you might need. We are working with the `2D` context, so you should think the canvas is a cartesian plane, where you can move elements changing their position in any of the `axis`.
-
-## Requirements
-
-- Fork this repo
-- Clone this repo
-
-## Submission
-
-- Upon completion, run the following commands:
-
-  ```
-  git add .
-  git commit -m "done"
-  git push origin master
-  ```
-
-- Create Pull Request so your TAs can check up your work.
+# Cards will be mixed up
+# All cards face down
+# Player turn over any two cards
+# If the two cards match we keep them
+# If they don't match, we turn them back over
+# Remember what was on each card and where it was
+# Watch and remember during the other player's turn
+# The game is over when all the cards have been matched
+# The player with the most matches wins
 
 ## Instructions
 
