@@ -1,0 +1,129 @@
+/* Color palette
+Baby Blue #C3E0E5
+Dark Blue #274472
+Blue Gray #5885AF
+Midnight Blue #41729F */
+
+body {
+  margin: 0;
+  background: url("../img/background.jpg") no-repeat;
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+}
+
+.fullgame {
+  display: flex;
+  flex-direction: row;
+}
+
+.gamepanel {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* align-content: center; */
+  /* text-align: center; */
+}
+
+button {
+  font-size: 30px;
+  font-weight: bolder;
+  background-color: #5885af;
+  color: #274472;
+  padding: 10px 10px;
+  border: 2px #274472 solid;
+  box-shadow: 0;
+  border-radius: 3px;
+  margin: 20px;
+}
+
+#memory-board {
+  background: #5885af;
+  width: 800px;
+  height: 540px;
+  padding: 30px;
+  /* margin: 0px auto; */
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 20px -6px rgba(97, 89, 97, 1);
+}
+
+.card {
+  display: inline-block;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  /* z-index: 10; */
+  position: relative;
+}
+
+.card.turned {
+  pointer-events: none;
+}
+
+.card.turned .front {
+  transform: rotateY(0deg);
+}
+.card.turned .back {
+  transform: rotateY(180deg);
+}
+
+.card .back,
+.card .front {
+  width: 72px;
+  height: 72px;
+  margin: 5px;
+  padding: 25px;
+  font-size: 64px;
+
+  transition: transform 0.6s;
+}
+
+.card .back {
+  background: url("../img/CardCover.png") no-repeat;
+  background-size: cover;
+}
+
+.card .front {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotateY(-180deg) translateZ(1px);
+  backface-visibility: hidden;
+}
+
+#score {
+  background-color: rgba(195, 224, 229, 0.8);
+  border-radius: 8px;
+  font-size: 30px;
+  width: 250px;
+  padding: 10px;
+}
+
+.container {
+  position: relative;
+}
+
+h1 {
+  color: #274472;
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 67px;
+  text-align: center;
+  text-shadow: 0px 0px 20px rgba(150, 150, 150, 1);
+}
+
+h2 {
+  color: #274472;
+  font-weight: bolder;
+  font-size: 35px;
+  text-align: center;
+  text-shadow: 1px #ff0000;
+  text-shadow: 1px #ff0000;
+}
+
+p {
+  color: #41729f;
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+}

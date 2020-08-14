@@ -4,15 +4,15 @@
 
 ## Game rules
 
-# Cards will be mixed up
-# All cards face down
-# Player turn over any two cards
-# If the two cards match we keep them
-# If they don't match, we turn them back over
-# Remember what was on each card and where it was
-# Watch and remember during the other player's turn
-# The game is over when all the cards have been matched
-# The player with the most matches wins
+1. Cards will be mixed up
+2. All cards face down
+3. Player turn over any two cards
+   * If the two cards match we keep them
+   * If they don't match, we turn them back over
+4. Remember what was on each card and where it was
+5. Watch and remember during the other player's turn
+6. The game is over when all the cards have been matched
+7. The player with the most matches wins
 
 ## Instructions
 
