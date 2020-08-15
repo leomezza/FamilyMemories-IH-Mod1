@@ -57,8 +57,8 @@ Version | Comments
 
 ## Authors
 
-  - **Leonardo Mezzanotti** - [leomezza](https://github.com/leomezza)
-  Some parts of this code are taken from https://github.com/ironhack-labs/lab-javascript-memory-game Self Guided Reinforcement Lab - thanks much my instructor for pointing me to this resource
+  * **Leonardo Mezzanotti** - [leomezza](https://github.com/leomezza)
+  * Some parts of this code are taken from this [Self Guided Reinforcement Lab](https://github.com/ironhack-labs/lab-javascript-memory-game) - thanks much my instructor for pointing me to this resource
 
 
 ## Roadmap
