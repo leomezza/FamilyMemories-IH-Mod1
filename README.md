@@ -2,6 +2,21 @@
 
 # Project #1 | Family Memories
 
+# Project Title
+
+This is my first coding project as part of the IronHack bootcamp. It's a game called **Family Memories** and it's just like a regular *memory game* but using pictures of loved children from my family.
+
+## Summary
+
+  - [Game rules](#game-rules)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+  - [Running the tests](#running-the-tests)
+  - [Version](#version)
+  - [Authors](#authors)
+  - [Roadmap](#roadmap)
+  - [Acknowledgments](#acknowledgments)
+
 ## Game rules
 
 1. Cards will be mixed up
@@ -14,48 +29,42 @@
 6. The game is over when all the cards have been matched
 7. The player with the most matches wins
 
-## Instructions
+## Prerequisites
 
-### Iteration 1: Draw the game board
+No real prereqs, just use your **browser**, game is using startdard *HTML, CSS and JavaScript*.
 
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_ab5a6ba28003829bd3d8d485feeee649.png)
+## Installing
 
-The first thing we need is to create our board. The left side of the image is already on the HTML file, but when we click on the **Start Game** button, we need to create the canvas and display the road.
+You can run it offline by downloading the project files or you can run my online instance from ------
 
-The canvas HTML element is already part of the HTML starter code provided in the `index.html` file. In the `images` folder, you can find the image of the raod.
+If you want to customize the game with your own family pictures, just throw the image files inside **img** folder and edit the constant array family from *script.js* with the family members names which must match the pictures filenames.
 
-### Iteration 2: Draw the car
+   Example:
+    const family = ['Romeo', 'Juliet', 'John', 'Mary'];
+   **img* folder must have correspondent files *Romeo.jpg, Juliet.jpg, John.jpg, Mary.jpg* inside it.
 
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_9a8f35a079a1343f39cee4028ab8a081.png)
+## Running the tests
 
-Once we have our road, we need the player's car. The same as for the raod, in the `images` folder, you will find a `.png` file you should use.
+Explain how to run the automated tests for this system
 
-### Iteration 3: Make the car move right and left
+## Version
 
-In our game, the player will only be able to move the car to the right and left. Using `left` and `right` arrows, the player should be able to move the car.
+Version | Comments
+------- | --------
+0.1 | Initial release
 
-:bulb: Remember the boundaries!
+## Authors
 
-### Iteration 4: Create obstacles
+  - **Leonardo Mezzanotti** - [leomezza](https://github.com/leomezza)
 
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_618fa6bbeed08f1e74b9457af1ecaf4c.png)
+## Roadmap
 
-Now let's make this interesting. We should create obstacles that show up every specific amount of time.
+* 3 or 4 players
+* 
 
-They will always start in the position **0** of the `y` axis (the obstacles will be coming from the top of the canvas), but you should make them appear in a random place of the `x` axis.
+## Acknowledgments
 
-### Iteration 5: Move the obstacles
-
-For moving the obstacles, we need to update our `canvas` continuously. In this iteration, you need to continually change the position of the obstacles in every update, making them move down the road.
-
-### Iteration 6: Points, points, points
-
-Oh! If we want to challenge somebody, we need to quantify who is making it better. So we need to add a **score**. Go ahead and add a method to count points while you keep the car avoiding obstacles.
-
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_e4b1a09cee1b1a827a2c68023d0d2b1f.png)
-
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_4e64a09180fd0add2766f7e28ebce6bf.png)
-
-<br>
+* **Henrique** - Instructor
+* **Ingrid** - Teacher Assistant
 
 **Happy coding!** :heart:
