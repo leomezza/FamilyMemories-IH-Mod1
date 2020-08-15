@@ -1,8 +1,8 @@
 ![logo_game](./img/CardCover.png)
 
-# Project #1 | Family Memories
+# Project #1
 
-# Project Title
+# Family Memories
 
 This is my first coding project as part of the IronHack bootcamp. It's a game called **Family Memories** and it's just like a regular *memory game* but using pictures of loved children from my family.
 
