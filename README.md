@@ -31,7 +31,7 @@ This is my first coding project as part of the IronHack bootcamp. It's a game ca
 
 ## Prerequisites
 
-No real prereqs, just use your **browser**, game is using startdard *HTML, CSS and JavaScript*.
+No real prereqs, just use your **browser**, game is using standard *HTML, CSS and JavaScript*.
 
 ## Installing
 
@@ -58,6 +58,8 @@ Version | Comments
 ## Authors
 
   - **Leonardo Mezzanotti** - [leomezza](https://github.com/leomezza)
+  Some parts of this code are taken from https://github.com/ironhack-labs/lab-javascript-memory-game Self Guided Reinforcement Lab - thanks much my instructor for pointing me to this resource
+
 
 ## Roadmap
 
@@ -68,5 +70,3 @@ Version | Comments
 
 * **Henrique** - Instructor
 * **Ingrid** - Teacher Assistant
-
-**Happy coding!** :heart:
