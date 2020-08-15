@@ -40,8 +40,10 @@ You can run it offline by downloading the project files or you can run my online
 If you want to customize the game with your own family pictures, just throw the image files inside **img** folder and edit the constant array family from *script.js* with the family members names which must match the pictures filenames.
 
    Example:
-    const family = ['Romeo', 'Juliet', 'John', 'Mary'];
-   **img* folder must have correspondent files *Romeo.jpg, Juliet.jpg, John.jpg, Mary.jpg* inside it.
+```javascript
+const family = ['Romeo', 'Juliet', 'John', 'Mary'];
+```
+   **img** folder must have correspondent files *Romeo.jpg, Juliet.jpg, John.jpg, Mary.jpg* inside it.
 
 ## Running the tests
 
