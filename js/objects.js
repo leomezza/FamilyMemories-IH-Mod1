@@ -16,8 +16,35 @@ class Game {
     }
   }
 
-  drawBoard() {
+  resetGame() {
+    this.pickedCards = [];
+    this.pairsClicked = 0;
+    this.pairsGuessed = 0;
+    this.updateScore();
+    this.shuffleCards();
+  }
+
+  cardsUnclickable() {
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.add("unclickable");
+    });
+  }
+
+  cardsClickable() {
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.remove("unclickable");
+    });
+  }
+
+  updateScore() {
+    document.querySelector('#pairs-guessed').innerHTML = game.pairsGuessed;
+    document.querySelector('#pairs-clicked').innerHTML = game.pairsClicked;
+  }
+
+  drawBoard = () => {
+    this.resetGame();
     let html = '';
+    document.querySelector('#memory-board').innerHTML = html;
     game.cards.forEach(pic => {
       html += `<div class="card" data-card-name="${pic.name}">`;
       html += `<div class="back" name="${pic.img}"></div>`;
@@ -25,14 +52,37 @@ class Game {
       html += `</div>`;
     });
     document.querySelector('#memory-board').innerHTML = html;
-  }
-
-  resetGame() {
-    console.log('Reseting the game');
-    this.pickedCards = [];
-    this.pairsClicked = 0;
-    this.pairsGuessed = 0;
-    this.shuffleCards;
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.getElementById("click").play();
+        card.classList.add("turned");
+        console.log(card.getAttribute('data-card-name'));
+        game.pickedCards.push(card);
+        if (game.pickedCards.length === 2) {
+          game.cardsUnclickable();
+          const pickedCardsName = game.pickedCards.map(cardName => {
+            return cardName.getAttribute('data-card-name');
+          });
+          const sameCard = game.checkIfPair(pickedCardsName[0], pickedCardsName[1]);
+          if (sameCard) {
+            document.getElementById("correct").play();
+            if (game.isFinished()) document.querySelector('h1').innerHTML = 'You won!!!';
+            game.pickedCards.forEach(card => card.classList.add("transparent"));
+            this.updateScore();
+            game.pickedCards = [];
+            game.cardsClickable();
+          } else {
+            document.getElementById("wrong").play();
+            setTimeout(function () {
+              game.pickedCards.forEach(card => card.classList.remove("turned"));
+              game.pickedCards = [];
+              game.cardsClickable();
+            }, 2000);
+          }
+          this.updateScore();
+        }
+      });
+    });
   }
 
   checkIfPair(card1, card2) {

@@ -60,11 +60,19 @@ button {
   pointer-events: none;
 }
 
+.card.unclickable {
+  pointer-events: none;
+}
+
 .card.turned .front {
   transform: rotateY(0deg);
 }
 .card.turned .back {
   transform: rotateY(180deg);
+}
+
+.card.turned.transparent {
+  opacity: 0.5;
 }
 
 .card .back,
