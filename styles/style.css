@@ -163,7 +163,7 @@ p {
   }
   #memory-board {
     height: auto;
-    min-height: 270px;
+    min-height: 540px;
     padding: 20px;
   }
   .card .back,
