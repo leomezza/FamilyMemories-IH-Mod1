@@ -34,9 +34,9 @@ No real prereqs, just use your **browser**, game is using standard *HTML, CSS an
 
 ## Installing
 
-You can run it offline by downloading the project files or you can run my online instance from [GitHub Pages](https://leomezza.github.io/FamilyMemories-IH-Mod1/)
+You can run it offline by downloading/cloning the project files or you can run my online instance from [GitHub Pages](https://leomezza.github.io/FamilyMemories-IH-Mod1/)
 
-If you want to customize the game with your own family pictures, just throw the image files inside **img** folder and edit the constant array *family* from *script.js* with the family members names which must match the filenames from the pictures.
+If you want to customize the game with your own family pictures firstly download/clone the the project, then just throw the image files inside **img** folder and edit the constant array *family* from *js/script.js* with the family members names which must match the filenames from the pictures.
 
    Example:
 ```javascript
