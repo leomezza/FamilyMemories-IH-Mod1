@@ -8,7 +8,9 @@ const game = new Game(cardsObj);
 
 window.onload = () => {
   document.getElementById('start-button').onclick = (e) => {
+    document.getElementById("start").play();
     game.drawBoard();
+    e.target.style.color = "#274472"
     e.target.innerHTML = 'Restart Game';
   };
 };

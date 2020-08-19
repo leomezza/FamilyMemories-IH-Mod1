@@ -37,52 +37,62 @@ class Game {
   }
 
   updateScore() {
-    document.querySelector('#pairs-guessed').innerHTML = game.pairsGuessed;
-    document.querySelector('#pairs-clicked').innerHTML = game.pairsClicked;
+    document.querySelector('#pairs-guessed').innerHTML = this.pairsGuessed;
+    document.querySelector('#pairs-clicked').innerHTML = this.pairsClicked;
+  }
+
+  checkSameCards() {
+    if (this.pickedCards.length === 2) {
+      this.cardsUnclickable();
+      const pickedCardsName = this.pickedCards.map(cardName => {
+        return cardName.getAttribute('data-card-name');
+      });
+      const sameCard = this.checkIfPair(pickedCardsName[0], pickedCardsName[1]);
+      if (sameCard) {
+        document.getElementById("correct").play();
+        if (this.isFinished()) {
+          document.getElementById("tada").play();
+          document.querySelector('#start-button').style.color = "red";
+          document.querySelector('#start-button').innerHTML = 'You won!!!';
+        } this.pickedCards.forEach(card => card.classList.add("transparent"));
+        this.updateScore();
+        this.pickedCards = [];
+        this.cardsClickable();
+      } else {
+        document.getElementById("wrong").play();
+        setTimeout(() => {
+          this.pickedCards.forEach(card => card.classList.remove("turned"));
+          this.pickedCards = [];
+          this.cardsClickable();
+        }, 2000);
+      }
+      this.updateScore();
+    }
+  }
+
+  cardsClick() {
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.getElementById("click").play();
+        card.classList.add("turned");
+        this.pickedCards.push(card);
+        this.checkSameCards();
+      });
+    });
   }
 
   drawBoard = () => {
     this.resetGame();
     let html = '';
     document.querySelector('#memory-board').innerHTML = html;
-    game.cards.forEach(pic => {
+    this.cards.forEach(pic => {
       html += `<div class="card" data-card-name="${pic.name}">`;
       html += `<div class="back" name="${pic.img}"></div>`;
       html += `<div class="front" style="background: url(img/${pic.img}) no-repeat; background-size: cover"></div>`;
       html += `</div>`;
     });
     document.querySelector('#memory-board').innerHTML = html;
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
-        document.getElementById("click").play();
-        card.classList.add("turned");
-        console.log(card.getAttribute('data-card-name'));
-        game.pickedCards.push(card);
-        if (game.pickedCards.length === 2) {
-          game.cardsUnclickable();
-          const pickedCardsName = game.pickedCards.map(cardName => {
-            return cardName.getAttribute('data-card-name');
-          });
-          const sameCard = game.checkIfPair(pickedCardsName[0], pickedCardsName[1]);
-          if (sameCard) {
-            document.getElementById("correct").play();
-            if (game.isFinished()) document.querySelector('h1').innerHTML = 'You won!!!';
-            game.pickedCards.forEach(card => card.classList.add("transparent"));
-            this.updateScore();
-            game.pickedCards = [];
-            game.cardsClickable();
-          } else {
-            document.getElementById("wrong").play();
-            setTimeout(function () {
-              game.pickedCards.forEach(card => card.classList.remove("turned"));
-              game.pickedCards = [];
-              game.cardsClickable();
-            }, 2000);
-          }
-          this.updateScore();
-        }
-      });
-    });
+    this.cardsClick();
   }
 
   checkIfPair(card1, card2) {

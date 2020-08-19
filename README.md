@@ -25,9 +25,8 @@ This is my first coding project as part of the IronHack bootcamp. It's a game ca
    * If the two cards match we keep them
    * If they don't match, we turn them back over
 4. Remember what was on each card and where it was
-5. Watch and remember during the other player's turn
-6. The game is over when all the cards have been matched
-7. The player with the most matches wins
+5. The game is over when all the cards have been matched
+6. The player checks how many attempts were needed
 
 ## Prerequisites
 
@@ -63,8 +62,8 @@ Version | Comments
 
 ## Roadmap
 
-* 3 or 4 players
-* 
+* 2, 3 or 4 players
+* Improve responsive web design
 
 ## Acknowledgments
 
