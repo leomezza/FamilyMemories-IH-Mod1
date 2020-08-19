@@ -41,6 +41,12 @@ class Game {
     document.querySelector('#pairs-clicked').innerHTML = this.pairsClicked;
   }
 
+  gameWin() {
+    document.getElementById("tada").play();
+    document.querySelector('#start-button').style.color = "red";
+    document.querySelector('#start-button').innerHTML = 'You won!!!';
+  }
+
   checkSameCards() {
     if (this.pickedCards.length === 2) {
       this.cardsUnclickable();
@@ -50,11 +56,8 @@ class Game {
       const sameCard = this.checkIfPair(pickedCardsName[0], pickedCardsName[1]);
       if (sameCard) {
         document.getElementById("correct").play();
-        if (this.isFinished()) {
-          document.getElementById("tada").play();
-          document.querySelector('#start-button').style.color = "red";
-          document.querySelector('#start-button').innerHTML = 'You won!!!';
-        } this.pickedCards.forEach(card => card.classList.add("transparent"));
+        if (this.isFinished()) this.gameWin();
+        this.pickedCards.forEach(card => card.classList.add("transparent"));
         this.updateScore();
         this.pickedCards = [];
         this.cardsClickable();

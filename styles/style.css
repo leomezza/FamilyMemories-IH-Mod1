@@ -24,8 +24,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* align-content: center; */
-  /* text-align: center; */
 }
 
 button {
@@ -42,14 +40,17 @@ button {
 }
 
 #memory-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
   background: #5885af;
   max-width: 800px;
-  width: 100%;
-  /* height: 540px; */
+  width: calc(100% - 40px);
   height: auto;
   min-height: 544px;
   padding: 30px;
-  /* margin: 0px auto; */
   border-radius: 15px;
   box-shadow: inset 0px 0px 20px -6px rgba(97, 89, 97, 1);
 }
@@ -58,7 +59,6 @@ button {
   display: inline-block;
   perspective: 300px;
   transform-style: preserve-3d;
-  /* z-index: 10; */
   position: relative;
 }
 
