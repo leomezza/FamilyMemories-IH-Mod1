@@ -1,5 +1,5 @@
 const family = ['Cla', 'Lu', 'Pepê', 'Lelê', 'Lau', 'Clarice', 'Teteus', 'Gabi', 'Miguel', 'Theo', 'Gui', 'João'];
-console.log(family);
+
 const cards = new Cards(family);
 cards.namesAndImagesObj();
 const cardsObj = cards.namesAndImages;
