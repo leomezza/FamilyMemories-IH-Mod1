@@ -4,6 +4,8 @@ class Game {
     this.pickedCards = [];
     this.pairsClicked = 0;
     this.pairsGuessed = 0;
+    this.players = 1;
+    this.playerTurn = 1;
   }
 
   shuffleCards() {
@@ -20,6 +22,12 @@ class Game {
     this.pickedCards = [];
     this.pairsClicked = 0;
     this.pairsGuessed = 0;
+    if (this.players === 2) {
+      player1.pairsClicked = 0;
+      player1.pairsGuessed = 0;
+      player2.pairsClicked = 0;
+      player2.pairsGuessed = 0;
+    }
     this.updateScore();
     this.shuffleCards();
   }
@@ -37,14 +45,35 @@ class Game {
   }
 
   updateScore() {
-    document.querySelector('#pairs-guessed').innerHTML = this.pairsGuessed;
-    document.querySelector('#pairs-clicked').innerHTML = this.pairsClicked;
+    if (this.players === 1) {
+      document.querySelector('#pairs-guessed').innerHTML = this.pairsGuessed;
+      document.querySelector('#pairs-clicked').innerHTML = this.pairsClicked;
+    }
+    if (this.players === 2) {
+      document.querySelector('#player-turn').innerHTML = this.playerTurn;
+      document.querySelector('#pairs-guessed1').innerHTML = player1.pairsGuessed;
+      document.querySelector('#pairs-clicked1').innerHTML = player1.pairsClicked;
+      document.querySelector('#pairs-guessed2').innerHTML = player2.pairsGuessed;
+      document.querySelector('#pairs-clicked2').innerHTML = player2.pairsClicked;
+    }
   }
 
   gameWin() {
     document.getElementById("tada").play();
-    document.querySelector('#start-button').style.color = "red";
-    document.querySelector('#start-button').innerHTML = 'You won!!!';
+    if (this.players === 1) {
+      document.querySelector('#one-player').style.color = "red";
+      document.querySelector('#one-player').innerHTML = 'You won!!!';
+    }
+    if (this.players === 2) {
+      document.querySelector('#two-players').style.color = "red";
+      if (player1.pairsGuessed > player2.pairsGuessed) {
+        document.querySelector('#two-players').innerHTML = 'P1 won!!!';
+      } else if (player1.pairsGuessed < player2.pairsGuessed) {
+        document.querySelector('#two-players').innerHTML = 'P2 won!!!';
+      } else {
+        document.querySelector('#two-players').innerHTML = 'Tied Game!!!';
+      }
+    }
   }
 
   checkSameCards() {
@@ -84,6 +113,23 @@ class Game {
     });
   }
 
+  drawScore() {
+    let html = '';
+    if (this.players === 1) {
+      html += `<h2>One Player</h2>`;
+      html += `<p>Pairs clicked: <span id="pairs-clicked">0</span></p>`;
+      html += `<p>Pairs guessed: <span id="pairs-guessed">0</span></p>`;
+      document.querySelector('#score').innerHTML = html;
+    }
+    if (this.players === 2) {
+      html += `<h2>Two Players</h2>`;
+      html += `<h2><span id="player-turn">${this.playerTurn}</span>P Turn</h2>`;
+      html += `<p>1P clicked: <span id="pairs-clicked1">0</span> guessed: <span id="pairs-guessed1">0</span>`;
+      html += `<p>2P clicked: <span id="pairs-clicked2">0</span> guessed: <span id="pairs-guessed2">0</span></p>`;
+      document.querySelector('#score').innerHTML = html;
+    }
+  }
+
   drawBoard = () => {
     this.resetGame();
     let html = '';
@@ -99,21 +145,48 @@ class Game {
   }
 
   checkIfPair(card1, card2) {
-    this.pairsClicked += 1;
-    let sameCard;
-    if (card1 === card2) {
-      this.pairsGuessed += 1;
-      sameCard = true;
-    } else sameCard = false;
-    return sameCard;
-  }
+    if (this.players === 1) {
+      this.pairsClicked += 1;
+      let sameCard;
+      if (card1 === card2) {
+        this.pairsGuessed += 1;
+        sameCard = true;
+      } else sameCard = false;
+      return sameCard;
+    }
 
-  clearPickedCards() {
-    this.pickedCards = [];
+    if (this.players === 2) {
+      if (this.playerTurn === 1) {
+        player1.pairsClicked += 1;
+        let sameCard;
+        if (card1 === card2) {
+          player1.pairsGuessed += 1;
+          sameCard = true;
+        } else {
+          this.playerTurn = 2;
+          sameCard = false;
+        }
+        return sameCard;
+      }
+
+      if (this.playerTurn === 2) {
+        player2.pairsClicked += 1;
+        let sameCard;
+        if (card1 === card2) {
+          player2.pairsGuessed += 1;
+          sameCard = true;
+        } else {
+          this.playerTurn = 1;
+          sameCard = false;
+        }
+        return sameCard;
+      }
+    }
   }
 
   isFinished() {
-    return (this.pairsGuessed === this.cards.length / 2);
+    if (this.players === 1) return (this.pairsGuessed === this.cards.length / 2);
+    if (this.players === 2) return (player1.pairsGuessed + player2.pairsGuessed === this.cards.length / 2);
   }
 
 }
@@ -123,13 +196,7 @@ class Player {
     this.pairsClicked = 0;
     this.pairsGuessed = 0;
     this.myTurn = false;
-    this.pickedCards = [];
   }
-
-  clearPickedCards() {
-    this.pickedCards = [];
-  }
-
 }
 
 class Cards {
