@@ -26,17 +26,22 @@ body {
   align-items: center;
 }
 
+.players {
+  display: flex;
+  flex-direction: row;
+}
+
 button {
-  width: 260px;
-  font-size: 30px;
+  width: 180px;
+  font-size: 26px;
   font-weight: bolder;
   background-color: #5885af;
   color: #274472;
-  padding: 10px;
+  padding: 5px;
   border: 2px #274472 solid;
   box-shadow: 0;
   border-radius: 3px;
-  margin: 20px;
+  margin: 10px;
 }
 
 #memory-board {
@@ -109,6 +114,8 @@ button {
   border-radius: 8px;
   font-size: 30px;
   width: 250px;
+  min-height: 260px;
+  height: 100%;
   padding: 10px;
 }
 
@@ -155,10 +162,15 @@ p {
     padding: 5px;
     margin: 10px;
   }
+  .players {
+    flex-direction: column;
+  }
   #score {
     border-radius: 8px;
     font-size: 16px;
     width: 140px;
+    min-height: 130px;
+    height: 100%;
     padding: 5px;
   }
   #memory-board {
