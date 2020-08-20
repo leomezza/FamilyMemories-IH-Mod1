@@ -32,7 +32,7 @@ This is my first coding project as part of the IronHack bootcamp. It's a game ca
 
 ## Prerequisites
 
-No real prereqs, just use your **browser**, game is using standard _HTML, CSS and JavaScript_.
+No real prerequisites, just use your **browser**, game is using standard _HTML, CSS and JavaScript_.
 
 ## Installing
 
