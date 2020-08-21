@@ -1,4 +1,4 @@
-![logo_game](./img/CardCover.png?v=4&s=150)
+![logo_game](./img/CardCover.png){:height="50%" width="50%"}
 
 # Project #1
 
