@@ -68,7 +68,7 @@ const family = ["Romeo", "Juliet", "John", "Mary"];
 - Less buttons and use a switch for the number of players
 - Improve responsive web design even further
 - User friendly Restart button
-- Beauty game win page
+- Beautify game win page
 - Mobile app
 - Timeout for player's turn
 
