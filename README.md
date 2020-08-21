@@ -58,7 +58,7 @@ const family = ["Romeo", "Juliet", "John", "Mary"];
 
 *-* **Leonardo Mezzanotti** - [leomezza](https://github.com/leomezza)
 
-* Some parts of this code are taken from this [Self Guided Reinforcement Lab](https://github.com/ironhack-labs/lab-javascript-memory-game) - thanks much my instructor for pointing me to this resource
+* Some parts of this code are taken from the [Self Guided Reinforcement Lab](https://github.com/ironhack-labs/lab-javascript-memory-game) - thanks much my instructor for pointing me to this resource
 * Sound effects wav files taken from [Freesound](https://freesound.org/)
 * CSS Hover effects - [Hover.css](https://ianlunn.github.io/Hover/)
 
