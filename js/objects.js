@@ -22,6 +22,7 @@ class Game {
     this.pickedCards = [];
     this.pairsClicked = 0;
     this.pairsGuessed = 0;
+    this.playerTurn = 1;
     if (this.players === 2) {
       player1.pairsClicked = 0;
       player1.pairsGuessed = 0;
@@ -34,13 +35,13 @@ class Game {
 
   cardsUnclickable() {
     document.querySelectorAll('.card').forEach(card => {
-      card.classList.add("unclickable");
+      card.classList.add('unclickable');
     });
   }
 
   cardsClickable() {
     document.querySelectorAll('.card').forEach(card => {
-      card.classList.remove("unclickable");
+      card.classList.remove('unclickable');
     });
   }
 
@@ -59,13 +60,13 @@ class Game {
   }
 
   gameWin() {
-    document.getElementById("tada").play();
+    document.getElementById('tada').play();
     if (this.players === 1) {
-      document.querySelector('#one-player').style.color = "red";
+      document.querySelector('#one-player').style.color = 'red';
       document.querySelector('#one-player').innerHTML = 'You won!!!';
     }
     if (this.players === 2) {
-      document.querySelector('#two-players').style.color = "red";
+      document.querySelector('#two-players').style.color = 'red';
       if (player1.pairsGuessed > player2.pairsGuessed) {
         document.querySelector('#two-players').innerHTML = 'P1 won!!!';
       } else if (player1.pairsGuessed < player2.pairsGuessed) {
@@ -84,16 +85,16 @@ class Game {
       });
       const sameCard = this.checkIfPair(pickedCardsName[0], pickedCardsName[1]);
       if (sameCard) {
-        document.getElementById("correct").play();
+        document.getElementById('correct').play();
         if (this.isFinished()) this.gameWin();
-        this.pickedCards.forEach(card => card.classList.add("transparent"));
+        this.pickedCards.forEach(card => card.classList.add('transparent'));
         this.updateScore();
         this.pickedCards = [];
         this.cardsClickable();
       } else {
-        document.getElementById("wrong").play();
+        document.getElementById('wrong').play();
         setTimeout(() => {
-          this.pickedCards.forEach(card => card.classList.remove("turned"));
+          this.pickedCards.forEach(card => card.classList.remove('turned'));
           this.pickedCards = [];
           this.cardsClickable();
         }, 2000);
@@ -105,8 +106,8 @@ class Game {
   cardsClick() {
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
-        document.getElementById("click").play();
-        card.classList.add("turned");
+        document.getElementById('click').play();
+        card.classList.add('turned');
         this.pickedCards.push(card);
         this.checkSameCards();
       });
@@ -122,10 +123,9 @@ class Game {
       document.querySelector('#score').innerHTML = html;
     }
     if (this.players === 2) {
-      html += `<h2>Two Players</h2>`;
-      html += `<h2><span id="player-turn">${this.playerTurn}</span>P Turn</h2>`;
-      html += `<p>1P clicked: <span id="pairs-clicked1">0</span> guessed: <span id="pairs-guessed1">0</span>`;
-      html += `<p>2P clicked: <span id="pairs-clicked2">0</span> guessed: <span id="pairs-guessed2">0</span></p>`;
+      html += `<h2>P<span id="player-turn">${this.playerTurn}</span> Turn</h2>`;
+      html += `<p>P1 clicked: <span id="pairs-clicked1">0</span> guessed: <span id="pairs-guessed1">0</span>`;
+      html += `<p>P2 clicked: <span id="pairs-clicked2">0</span> guessed: <span id="pairs-guessed2">0</span></p>`;
       document.querySelector('#score').innerHTML = html;
     }
   }
@@ -187,6 +187,20 @@ class Game {
   isFinished() {
     if (this.players === 1) return (this.pairsGuessed === this.cards.length / 2);
     if (this.players === 2) return (player1.pairsGuessed + player2.pairsGuessed === this.cards.length / 2);
+  }
+
+  styleButton1P() {
+    document.getElementById('one-player').style.color = '#274472';
+    document.getElementById('one-player').style.fontWeight = 'normal';
+    document.getElementById('one-player').style.opacity = '0.8';
+    document.getElementById('one-player').innerHTML = 'One Player';
+  }
+
+  styleButton2P() {
+    document.getElementById('two-players').style.color = '#274472';
+    document.getElementById('two-players').style.fontWeight = 'normal';
+    document.getElementById('two-players').style.opacity = '0.8';
+    document.getElementById('two-players').innerHTML = 'Two Players';
   }
 
 }

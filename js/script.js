@@ -10,25 +10,26 @@ const player2 = new Player();
 
 window.onload = () => {
   document.getElementById('one-player').onclick = (e) => {
-    document.getElementById("start").play();
+    document.getElementById('start').play();
     game.players = 1;
-    game.playerTurn = 1;
     game.drawScore();
     game.drawBoard();
-    e.target.style.color = "#274472";
+    e.target.style.color = '#274472';
+    e.target.style.fontWeight = 'bolder';
+    e.target.style.opacity = '1';
     e.target.innerHTML = 'Restart';
-    document.getElementById('two-players').style.color = "#274472";
-    document.getElementById('two-players').innerHTML = 'Two Players';
+    game.styleButton2P();
   };
+
   document.getElementById('two-players').onclick = (e) => {
-    document.getElementById("start").play();
+    document.getElementById('start').play();
     game.players = 2;
-    game.playerTurn = 1;
     game.drawScore();
     game.drawBoard();
-    e.target.style.color = "#274472";
+    e.target.style.color = '#274472';
+    e.target.style.fontWeight = 'bolder';
+    e.target.style.opacity = '1';
     e.target.innerHTML = 'Restart';
-    document.getElementById('one-player').style.color = "#274472";
-    document.getElementById('one-player').innerHTML = 'One Player';
+    game.styleButton1P();
   };
 };

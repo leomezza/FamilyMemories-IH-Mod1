@@ -34,7 +34,7 @@ body {
 button {
   width: 180px;
   font-size: 26px;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   background-color: #5885af;
   color: #274472;
   padding: 5px;
@@ -42,6 +42,88 @@ button {
   box-shadow: 0;
   border-radius: 3px;
   margin: 10px;
+  transform: perspective(1px) translateZ(0);
+}
+
+@keyframes hvr-buzz {
+  50% {
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+button:hover {
+  background-color: #41729f;
+  transition-duration: 1s;
+  animation-name: hvr-buzz;
+  animation-duration: 0.25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+
+#one-player .tooltiptext {
+  visibility: hidden;
+  font-size: 12px;
+  width: 110px;
+  bottom: 120%;
+  left: 70%;
+  margin-left: -70px;
+  background-color: black;
+  opacity: 0.6;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+#one-player .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+#one-player:hover .tooltiptext {
+  visibility: visible;
+}
+
+#two-players .tooltiptext {
+  visibility: hidden;
+  font-size: 12px;
+  width: 110px;
+  bottom: 120%;
+  left: 70%;
+  margin-left: -70px;
+  background-color: black;
+  opacity: 0.6;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+#two-players .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+#two-players:hover .tooltiptext {
+  visibility: visible;
 }
 
 #memory-board {
@@ -58,6 +140,10 @@ button {
   padding: 30px;
   border-radius: 15px;
   box-shadow: inset 0px 0px 20px -6px rgba(97, 89, 97, 1);
+}
+
+#memory-board:hover {
+  cursor: pointer;
 }
 
 .card {
@@ -114,8 +200,8 @@ button {
   border-radius: 8px;
   font-size: 30px;
   width: 250px;
-  min-height: 260px;
-  height: 100%;
+  /* min-height: 260px; */
+  height: 200px;
   padding: 10px;
 }
 
@@ -157,41 +243,47 @@ p {
     width: auto;
   }
   button {
-    width: 120px;
+    width: 100px;
     font-size: 14px;
     padding: 5px;
-    margin: 10px;
+    margin: 5px;
   }
   .players {
     flex-direction: column;
   }
   #score {
+    margin: 3px;
     border-radius: 8px;
     font-size: 16px;
     width: 140px;
-    min-height: 130px;
+    min-height: 100px;
     height: 100%;
-    padding: 5px;
+    padding: 3px;
   }
   #memory-board {
-    height: 540px auto;
-    padding: 20px;
+    min-height: 440px;
+    height: auto;
+    padding: 15px;
   }
   .card .back,
   .card .front {
-    width: 50px;
-    height: 50px;
-    margin: 3px;
-    padding: 15px;
+    width: 45px;
+    height: 45px;
+    margin: 2px;
+    padding: 10px;
   }
   h1 {
-    font-size: 20px;
+    font-size: 18px;
     margin: 4px;
   }
   h2 {
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 3px;
+    padding: 2px 0;
   }
   p {
     font-size: 12px;
+    font-weight: normal;
   }
 }

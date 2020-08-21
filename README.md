@@ -64,7 +64,8 @@ Explain how to run the automated tests for this system
 *-* **Leonardo Mezzanotti** - [leomezza](https://github.com/leomezza)
 
 * Some parts of this code are taken from this [Self Guided Reinforcement Lab](https://github.com/ironhack-labs/lab-javascript-memory-game) - thanks much my instructor for pointing me to this resource
-* Sound effects taken from [Freesound](https://freesound.org/)
+* Sound effects wav files taken from [Freesound](https://freesound.org/)
+* CSS Hover effects - [Hover.css](https://ianlunn.github.io/Hover/)
 
 ## Roadmap
 
