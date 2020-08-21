@@ -11,7 +11,6 @@ This is my first coding project as part of the IronHack bootcamp. It's a game ca
 - [Game rules](#game-rules)
 - [Prerequisites](#prerequisites)
 - [Installing](#installing)
-- [Running the tests](#running-the-tests)
 - [Version](#version)
 - [Authors and resources](#authors-and-resources)
 - [Roadmap](#roadmap)
@@ -47,10 +46,6 @@ const family = ["Romeo", "Juliet", "John", "Mary"];
 ```
 
 **img** folder must have correspondent files _Romeo.jpg, Juliet.jpg, John.jpg, Mary.jpg_ inside it.
-
-## Running the tests
-
-Explain how to run the automated tests for this system
 
 ## Version
 
