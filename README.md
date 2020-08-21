@@ -1,4 +1,4 @@
-![logo_game](./img/CardCover.png)
+![logo_game](./img/CardCover.png?s=250)
 
 # Project #1
 
