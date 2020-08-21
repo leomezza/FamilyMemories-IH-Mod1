@@ -1,4 +1,4 @@
-![logo_game](./img/CardCover.png){:height="50%" width="50%"}
+<img src="./img/CardCover.png" width="150" height="150" alt="Game card back cover">
 
 # Project #1
 
